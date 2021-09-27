@@ -1,0 +1,19 @@
+.text-black {
+    color: #000;
+}
+
+.nav {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px, rgba(0, 0, 0, 0.22) 0px 8px 8px;
+
+    .nav-link {
+        color: #444;
+
+        &:hover {
+            cursor: pointer;
+            color: #0f65d8;
+        }
+    }
+    .text-blue {
+        color: #0f65d8;
+    }
+}

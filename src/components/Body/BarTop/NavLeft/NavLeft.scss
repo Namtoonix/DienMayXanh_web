@@ -1,0 +1,24 @@
+.nav-list {
+    color: #8a8a8a;
+    font-size: 14px;
+
+    .tr-item {
+        border: 1px solid #ccc;
+
+        .name-type {
+            min-width: 200px;
+        }
+        &:hover {
+            font-weight: 700;
+        }
+    }
+    .item {
+        text-decoration: none;
+        color: #8a8a8a;
+
+        &:hover {
+            color: #0f65d8;
+            cursor: pointer;
+        }
+    }
+}

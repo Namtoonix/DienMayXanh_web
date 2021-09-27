@@ -1,0 +1,13 @@
+.hot-search {
+    display: flex;
+    font-size: 16px;
+    
+    p {
+        min-width: 120px;
+    }
+    li {
+        color: #4d90e0;
+        width: 100%;
+        margin-left: 32px;
+    }
+}

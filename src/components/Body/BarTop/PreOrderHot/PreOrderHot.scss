@@ -1,0 +1,13 @@
+.row {
+    --bs-gutter-x: 0rem;
+}
+.pre-order {
+    min-width: 262px;
+    .image-group {
+        display: flex;
+
+        .image-item {
+            padding: 4px;
+        }
+    }
+}
