@@ -30,8 +30,12 @@ function ProductItem(props) {
   };
 
   const dispatch = useDispatch();
-  const handleAddCart = (product) => {
-    const actions = onAddToCart(product);
+  const handleAddCart = (product, quantity) => {
+    const data = {
+      product: product,
+      quantity: quantity,
+    };
+    const actions = onAddToCart(data);
     dispatch(actions);
   };
 
@@ -62,7 +66,7 @@ function ProductItem(props) {
         </div>
         <div className="background-container">
           <button
-            onClick={() => handleAddCart(product)}
+            onClick={() => handleAddCart(product, 1)}
             className="fa fa-cart-plus buy-btn"
             aria-hidden="true"
           ></button>
