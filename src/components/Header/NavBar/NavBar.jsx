@@ -1,22 +1,31 @@
 import SearchForm from 'components/Header/SearchForm/SearchForm';
 import Suggestion from 'components/Header/Suggestion/Suggestion';
 import Modal from 'components/Modal/Modal';
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
 NavBar.propTypes = {};
 
 function NavBar(props) {
+  const addressList = ['Hồ Chí Minh', 'Hà Nội', 'Đà Nẵng', 'Cần Thơ'];
+  const addressId = localStorage.getItem('addressId') ? localStorage.getItem('addressId') : 0;
+  const [address, setAddress] = useState(addressList[addressId]);
+
+  const handleShowAddress = (addressList, addressId) => {
+    setAddress(addressList[addressId]);
+  };
+
   return (
     <nav className="navHeader navbar navbar-expand-lg navbar-light">
       <div className="navbar-center">
-        <a href="##" className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           <img
             alt=""
             src="https://cdn.tgdd.vn/Files/2011/06/10/40705/lo-go-dienmayxanh.png"
             style={{ width: 140 + 'px' }}
           />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -32,49 +41,49 @@ function NavBar(props) {
           <li className="nav-item">
             <a href="##" className="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal">
               <span>Xem giá, tồn kho tại:</span> <br />
-              P.Phước Long A,...
+              {address}...
               <i className="fa fa-caret-down" aria-hidden="true"></i>
             </a>
-            <Modal />
+            <Modal addressList={addressList} showAddress={handleShowAddress} />
             <a href="##" className="nav-link">
               <SearchForm />
             </a>
-            <a href="##" className="nav-link cart-btn btn me-3">
+            <Link to="/cart" className="nav-link cart-btn btn me-3">
               <i className="fa fa-shopping-cart" aria-hidden="true"></i>
               Giỏ Hàng
-            </a>
+            </Link>
             <Suggestion />
           </li>
           <li className="nav-item">
-            <a href="##" className="nav-link">
+            <Link to="/pre-order" className="nav-link">
               Lịch sử <br />
               đơn hàng
-            </a>
+            </Link>
           </li>
           <li className="nav-item row">
             <div className="col-auto position-relative ms-2">
               <div className="dot-gold"></div>
               <div className="dot-animation"></div>
             </div>
-            <span className="nav-link col-auto color-gold">
+            <span className="nav-link col-auto color-gold cursor-none">
               Vinaphone <strong>TẶNG 20%</strong> giá trị thẻ <br /> nạp - 24/09
             </span>
           </li>
-          <li className="nav-item">
-            <a href="##" className="nav-link">
+          <li className="nav-item cursor-none">
+            <Link to="/tu-van-chon-mua" className="nav-link cursor-none">
               Tư vấn <br />
               chọn mua
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="##" className="nav-link">
+            <Link to="/khuyen-mai" className="nav-link">
               Khuyến mãi
-            </a>
+            </Link>
           </li>
-          <li className="nav-item">
-            <a href="##" className="nav-link">
+          <li className="nav-item cursor-none">
+            <Link to="/vao-bep" className="nav-link cursor-none">
               Vào bếp
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

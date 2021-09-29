@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './FootTop.scss';
+import './BodyBottom.scss';
 
-FootTop.propTypes = {
+BodyBottom.propTypes = {
   news: PropTypes.array.isRequired,
 };
 
-function FootTop(props) {
+function BodyBottom(props) {
   const { news } = props;
 
   const handleShowNews = (news) => {
@@ -25,7 +25,7 @@ function FootTop(props) {
         <div className="title">
           <p>TƯ VẤN CHỌN MUA</p>
           <a href="##">
-            Xem thêm <i class="fa fa-angle-right" aria-hidden="true"></i>
+            Xem thêm <i className="fa fa-angle-right" aria-hidden="true"></i>
           </a>
         </div>
         <img
@@ -41,7 +41,7 @@ function FootTop(props) {
         <div className="title">
           <p>MÓN NGON MỖI NGÀY</p>
           <a href="##">
-            Xem thêm <i class="fa fa-angle-right" aria-hidden="true"></i>
+            Xem thêm <i className="fa fa-angle-right" aria-hidden="true"></i>
           </a>
         </div>
         <img
@@ -54,4 +54,4 @@ function FootTop(props) {
   );
 }
 
-export default FootTop;
+export default BodyBottom;

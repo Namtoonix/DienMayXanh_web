@@ -20,14 +20,18 @@ nav.navHeader {
     display: flex;
     align-items: center;
 
+    
     .nav-link {
       color: #fff !important;
       font-size: 12px;
       padding: 5px 8px;
       margin: auto 4px;
-
+      
       position: relative;
-
+      
+      &.cursor-none:hover {
+        cursor: not-allowed !important;
+      }
       &:hover {
           color: #fff200 !important;
           cursor: pointer;

@@ -1,9 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './Modal.scss';
 
-Modal.propTypes = {};
+Modal.propTypes = {
+  showAddress: PropTypes.func,
+  addressList: PropTypes.array,
+};
+
+Modal.default = {
+  showAddress: null,
+  addressList: [],
+};
 
 function Modal(props) {
+  const { showAddress, addressList } = props;
+
+  const initAddressId = localStorage.getItem('addressId') ? localStorage.getItem('addressId') : 0;
+  const [addressId, setAddressId] = useState(initAddressId);
+
+  const handleChangeAddress = (e) => {
+    const addressId = e.target.value;
+    localStorage.setItem('addressId', addressId);
+    setAddressId(addressId);
+  };
+
+  const handleShowAddressToNav = () => {
+    if (!showAddress) return;
+    showAddress(addressList, addressId);
+  };
+
+  const handleShowSelectAddress = (addressList) => {
+    if (!addressList) return;
+
+    return addressList.map((address, index) => (
+      <option value={index} key={index}>
+        {address}
+      </option>
+    ));
+  };
+
+  const handleShowAddress = (addressList, addressId) => {
+    if (!addressList || !addressId) return;
+    return addressList[addressId];
+  };
+
   return (
     <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">
@@ -21,18 +61,17 @@ function Modal(props) {
                 Xem danh sách
               </a>
             </div>
-            <select className="form-select mt-3 p-3" aria-label="Default select example">
-              <option value="0">Hồ Chí Minh</option>
-              <option value="1">Hà Nội</option>
-              <option value="2">Đà Nẵng</option>
-              <option value="3">Cần Thơ</option>
+            <select
+              value={addressId}
+              onChange={handleChangeAddress}
+              className="form-select mt-3 p-3"
+              aria-label="Default select example"
+            >
+              {handleShowSelectAddress(addressList)}
             </select>
             <div className="pt-3">
-              <p>
-                Thành phố: <strong>Thủ Đức (gồm Q2, Q9, Q.TĐ)</strong>
-              </p>
-              <p>
-                Phường: <strong>Phước Long A</strong>
+              <p className="pb-2">
+                Tỉnh/Thành phố: <strong>{handleShowAddress(addressList, addressId)}</strong>
               </p>
               <a href="##" className="see-list">
                 Chọn địa chỉ khác
@@ -40,7 +79,13 @@ function Modal(props) {
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" data-bs-dismiss="modal" aria-label="Close" className="btn btn-confirm">
+            <button
+              onClick={handleShowAddressToNav}
+              type="button"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              className="btn btn-confirm"
+            >
               XÁC NHẬN
             </button>
           </div>

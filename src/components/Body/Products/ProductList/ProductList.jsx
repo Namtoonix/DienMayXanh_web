@@ -33,7 +33,7 @@ function ProductList(props) {
     if (!type || !products) return;
     return products.map((product, index) =>
       type.map((item, index) => {
-        if (product.type !== item) return;
+        if (product.type !== item) return null;
         return (
           <button
             key={index}
@@ -56,6 +56,8 @@ function ProductList(props) {
     return products.map((product, index) => {
       if (product.type === item) {
         return product.list.map((item, index) => <ProductItem key={index} product={item} />);
+      } else {
+        return null;
       }
     });
   };
@@ -65,13 +67,13 @@ function ProductList(props) {
     return type.map((item) => {
       if (product.type === item && !executed) {
         executed = true;
-        console.log(executed);
         return (
           <div
             id={'carouselExampleCaptions' + idSlide}
             className="product-slider2 carousel slide"
             data-bs-ride="carousel"
             data-bs-interval="false"
+            key={index}
           >
             <div className="carousel-indicators">{handleShowType(type, products)}</div>
             <div className="carousel-inner">
@@ -83,6 +85,8 @@ function ProductList(props) {
             </div>
           </div>
         );
+      } else {
+        return null;
       }
     });
   });

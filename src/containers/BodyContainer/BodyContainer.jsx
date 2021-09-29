@@ -1,6 +1,9 @@
+import newsApi from 'api/newsApi';
 import productApi from 'api/productApi';
 import BarTop from 'components/Body/BarTop/BarTop';
+import BodyBottom from 'components/Body/BodyBottom/BodyBottom';
 import BrandPage from 'components/Body/BrandPage/BrandPage';
+import HotSearch from 'components/Body/HotSearch/HotSearch';
 import ProductList from 'components/Body/Products/ProductList/ProductList';
 import ProductsSaleDay from 'components/Body/Products/ProductsSaleDay/ProductsSaleDay';
 import React from 'react';
@@ -142,6 +145,17 @@ function BodyContainer(props) {
       image: 'https://cdn.tgdd.vn/2021/08/banner/NewTV-780x420.jpg',
     },
   ];
+  const keyList = [
+    'Iphone 13',
+    'Món ngon mỗi ngày',
+    'Tivi Sony',
+    ' Thiết bị y tế',
+    'Đồ dùng mẹ và bé',
+    'Máy lạnh mới 2021',
+    'Máy lạnh Electrolux',
+    'Tư vấn đồng hồ',
+    'Máy giặt Midea',
+  ];
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
@@ -153,6 +167,16 @@ function BodyContainer(props) {
     fetchProducts();
   }, []);
 
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const params = {};
+      const news = await newsApi.getAll(params);
+      setNews(news);
+    };
+
+    fetchProducts();
+  }, []);
   const splitType = (typeProduct, products) => {
     if (!products) return;
     return typeProduct.map((item, index) => {
@@ -189,6 +213,13 @@ function BodyContainer(props) {
       {splitType(typeProduct, products)}
       <BrandPage brand={brandProduct} title="CHUYÊN TRANG THƯƠNG HIỆU" />
       <BrandPage brand={newProduct} title="SẢN PHẨM MỚI" />
+      <BodyBottom news={news} />
+      <HotSearch hotKey={keyList} />
+      <img
+        style={{ width: 100 + '%' }}
+        src="https://cdn.tgdd.vn/2021/08/banner/1200x60-1200x60-1-1200x60-1.jpeg"
+        alt=""
+      />
     </div>
   );
 }
