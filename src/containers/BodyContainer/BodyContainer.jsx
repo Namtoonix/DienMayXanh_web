@@ -1,82 +1,37 @@
 import newsApi from 'api/newsApi';
-import productApi from 'api/productApi';
+import typeProductApi from 'api/typeProductApi';
 import BarTop from 'components/Body/BarTop/BarTop';
 import BodyBottom from 'components/Body/BodyBottom/BodyBottom';
 import BrandPage from 'components/Body/BrandPage/BrandPage';
 import HotSearch from 'components/Body/HotSearch/HotSearch';
 import ProductList from 'components/Body/Products/ProductList/ProductList';
 import ProductsSaleDay from 'components/Body/Products/ProductsSaleDay/ProductsSaleDay';
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './BodyContainer.scss';
-
 BodyContainer.propTypes = {};
 
 function BodyContainer(props) {
-  const typeProduct = [
-    {
-      id: 1,
-      icon: 'fa fa-television',
-      title: 'Tivi, Loa, Dàn Karaoke',
-    },
-    {
-      id: 2,
-      icon: 'fa fa-television',
-      title: 'Tủ lạnh, Tủ đông, Tủ mát',
-    },
-    {
-      id: 3,
-      icon: 'fa fa-television',
-      title: 'Máy giặt, Sấy quần áo',
-    },
-    {
-      id: 4,
-      icon: 'fa fa-television',
-      title: 'Máy lạnh, Quạt điều hòa',
-    },
-    {
-      id: 5,
-      icon: 'fa fa-television',
-      title: 'Điện gia dụng, Dụng cụ',
-    },
-    {
-      id: 6,
-      icon: 'fa fa-television',
-      title: 'Đồ dùng nhà bếp, Mẹ và bé',
-    },
-    {
-      id: 7,
-      icon: 'fa fa-tint',
-      title: 'Lọc nước, Máy nước nóng',
-    },
-    {
-      id: 8,
-      icon: 'fa fa-mobile',
-      title: 'Điện thoại, Laptop, Tablet',
-    },
-    {
-      id: 9,
-      icon: 'fa fa-headphones',
-      title: 'Phụ kiện, Đồng hồ, Vali',
-    },
-    {
-      id: 10,
-      icon: 'fa fa-refresh',
-      title: 'Máy cũ, Trưng bày',
-    },
-    {
-      id: 11,
-      icon: 'fa fa-bicycle',
-      title: 'Xe đạp, Phụ kiện xe đạp',
-    },
-    {
-      id: 12,
-      icon: 'fa fa-cog',
-      title: 'Dịch vụ hữu ích',
-    },
-  ];
+  const products = useSelector((state) => state.products);
+  // handle search & filter
+  const [typeProduct, setTypeProduct] = useState([]);
+  const [filter, setFilter] = useState({
+    _limit: 1,
+    _page: 1,
+  });
+  useEffect(() => {
+    const fetchType = async () => {
+      const params = {};
+      const type = await typeProductApi.getAll(params);
+
+      setTypeProduct(type);
+    };
+
+    fetchType();
+  }, [filter]);
+
+  // data
   const slideList = [
     {
       id: 1,
@@ -156,31 +111,21 @@ function BodyContainer(props) {
     'Tư vấn đồng hồ',
     'Máy giặt Midea',
   ];
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const params = {};
-      const products = await productApi.getAll(params);
-      setProducts(products);
-    };
-
-    fetchProducts();
-  }, []);
 
   const [news, setNews] = useState([]);
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchNews = async () => {
       const params = {};
       const news = await newsApi.getAll(params);
       setNews(news);
     };
 
-    fetchProducts();
+    fetchNews();
   }, []);
   const splitType = (typeProduct, products) => {
     if (!products) return;
-    return typeProduct.map((item, index) => {
-      const type = item.title.split(', ');
+    return typeProduct.map((listType, index) => {
+      const type = listType.item;
       return <ProductList key={index} idSlide={index} products={products} type={type} />;
     });
   };

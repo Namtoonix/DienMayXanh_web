@@ -11,8 +11,8 @@ function NavLeft(props) {
 
   const showProductType = (arr) => {
     return arr.map((item, index) => (
-      <a href="##" key={index} className="item">
-        {item}
+      <a href={'#' + item.path} key={index} className="item">
+        {item.title}
         {index < arr.length - 1 ? ', ' : ''}
       </a>
     ));
@@ -20,11 +20,11 @@ function NavLeft(props) {
   return (
     <table className="col-2 text-start nav-list ps-4 pe-4">
       <tbody>
-        {typeProduct.map((type, index) => (
+        {typeProduct.map((listType, index) => (
           <tr key={index} className="tr-item">
-            <td className={'ps-2 pt-2 pb-2 fa ' + type.icon} aria-hidden="true"></td>
-            <td className="name-type">{showProductType(type.title.split(', '))}</td>
-            <td className="fa fa-chevron-right" aria-hidden="true"></td>
+            <td className={'p-2 fa ' + listType.icon} aria-hidden="true"></td>
+            <td className="name-type">{showProductType(listType.item)}</td>
+            <td className="fa fa-chevron-right pe-2" aria-hidden="true"></td>
           </tr>
         ))}
       </tbody>

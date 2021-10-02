@@ -15,13 +15,15 @@ ProductsSaleDay.propTypes = {
 function ProductsSaleDay(props) {
   const { products } = props;
   const data = [];
-  products.forEach((productByType) => {
-    productByType.list.forEach((product) => {
-      if (product.sale >= 25) {
-        data.push(product);
-      }
+  if (products.length) {
+    products.forEach((productByType) => {
+      productByType.list.forEach((product) => {
+        if (product.sale >= 29) {
+          data.push(product);
+        }
+      });
     });
-  });
+  }
 
   const settings = {
     className: 'center',

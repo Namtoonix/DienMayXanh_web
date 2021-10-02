@@ -33,10 +33,11 @@ function ProductList(props) {
     if (!type || !products) return;
     return products.map((product, index) =>
       type.map((item, index) => {
-        if (product.type !== item) return null;
+        if (product.type !== item.title) return null;
         return (
           <button
             key={index}
+            id={item.path}
             type="button"
             data-bs-target={'#carouselExampleCaptions' + idSlide}
             data-bs-slide-to={index}
@@ -44,7 +45,7 @@ function ProductList(props) {
             aria-current="true"
             aria-label={'Slide ' + (index + 1)}
           >
-            {item}
+            {item.title}
           </button>
         );
       })
@@ -65,7 +66,7 @@ function ProductList(props) {
   var executed = false;
   return products.map((product, index) => {
     return type.map((item) => {
-      if (product.type === item && !executed) {
+      if (product.type === item.title && !executed) {
         executed = true;
         return (
           <div
@@ -79,7 +80,7 @@ function ProductList(props) {
             <div className="carousel-inner">
               {type.map((item, index) => (
                 <div key={index} className={'carousel-item ' + (index === 0 ? 'active' : '')}>
-                  <Slider {...settings}>{handleShowProduct(products, item)}</Slider>
+                  <Slider {...settings}>{handleShowProduct(products, item.title)}</Slider>
                 </div>
               ))}
             </div>

@@ -3,11 +3,15 @@ import Suggestion from 'components/Header/Suggestion/Suggestion';
 import Modal from 'components/Modal/Modal';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './NavBar.scss';
 
-NavBar.propTypes = {};
+NavBar.propTypes = {
+  products: PropTypes.array.isRequired,
+};
 
 function NavBar(props) {
+  const { products } = props;
   const addressList = ['Hồ Chí Minh', 'Hà Nội', 'Đà Nẵng', 'Cần Thơ'];
   const addressId = localStorage.getItem('addressId') ? localStorage.getItem('addressId') : 0;
   const [address, setAddress] = useState(addressList[addressId]);
@@ -46,7 +50,7 @@ function NavBar(props) {
             </a>
             <Modal addressList={addressList} showAddress={handleShowAddress} />
             <a href="##" className="nav-link">
-              <SearchForm />
+              <SearchForm products={products} />
             </a>
             <Link to="/cart" className="nav-link cart-btn btn me-3">
               <i className="fa fa-shopping-cart" aria-hidden="true"></i>
