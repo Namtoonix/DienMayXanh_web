@@ -1,8 +1,8 @@
-import { onAddToCart } from 'features/Cart/CartSlice';
-import { updatePageInfo } from 'features/PageInfo/PageInfoSlice';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { onAddToCart } from '../../../../features/Cart/CartSlice';
+import { updatePageInfo } from '../../../../features/PageInfo/PageInfoSlice';
 import './ProductItem.scss';
 
 ProductItem.propTypes = {
