@@ -12,16 +12,16 @@ ProductItem.propTypes = {
 function ProductItem(props) {
   const { product } = props;
   const showStar = (star) => {
-    return (
-      <div>
-        <i className={'fa ' + (star > 0 ? 'fa-star' : 'fa-star-o')} aria-hidden="true"></i>
-        <i className={'fa ' + (star > 1 ? 'fa-star' : 'fa-star-o')} aria-hidden="true"></i>
-        <i className={'fa ' + (star > 2 ? 'fa-star' : 'fa-star-o')} aria-hidden="true"></i>
-        <i className={'fa ' + (star > 3 ? 'fa-star' : 'fa-star-o')} aria-hidden="true"></i>
-        <i className={'fa ' + (star > 4 ? 'fa-star' : 'fa-star-o')} aria-hidden="true"></i>
-      </div>
-    );
+    var result = [];
+    for (var i = 1; i <= star; i++) {
+      result.push(<i key={i} className="fa fa-star"></i>);
+    }
+    for (var j = i; j <= 5; j++) {
+      result.push(<i key={j} className="fa fa-star-o"></i>);
+    }
+    return result;
   };
+
   const handleShowSpecialFeature = (specialFeature) => {
     if (!specialFeature) return;
     return specialFeature.split(', ').map((feature, index) => (
