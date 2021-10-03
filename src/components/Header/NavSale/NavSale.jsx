@@ -14,17 +14,17 @@ function NavSale(props) {
         </a>
       </li>
       <li className="nav-item">
-        <a href="##" className="nav-link">
+        <a href="##" className="nav-link cursor-none">
           Tủ lạnh mua Online giảm đến 25%
         </a>
       </li>
       <li className="nav-item">
-        <a href="##" className="nav-link">
+        <a href="##" className="nav-link cursor-none">
           Tủ đông giảm sâu đến 20%
         </a>
       </li>
       <li className="nav-item">
-        <a href="##" className="nav-link">
+        <a href="##" className="nav-link cursor-none">
           Chỉ bán Online - Gia dụng giảm đến 49%
         </a>
       </li>

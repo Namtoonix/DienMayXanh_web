@@ -8,6 +8,9 @@
     .nav-link {
         color: #444;
 
+        &.cursor-none:hover {
+            cursor: not-allowed !important;
+        }
         &:hover {
             cursor: pointer;
             color: #0f65d8;

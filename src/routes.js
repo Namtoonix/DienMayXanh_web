@@ -4,6 +4,7 @@ import ConfirmNumberPhonePage from 'page/ConfirmNumberPhonePage/ConfirmNumberPho
 import KhuyenMaiPage from 'page/KhuyenMaiPage/KhuyenMaiPage';
 import NotFoundPage from 'page/NotFoundPage/NotFoundPage';
 import PreOrderPage from 'page/PreOrderPage/PreOrderPage';
+import ProductInfoPage from 'page/ProductInfoPage/ProductInfoPage';
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/cart',
     exact: false,
     main: () => <CartFeature />,
+  },
+  {
+    path: '/product/id',
+    exact: false,
+    main: () => <ProductInfoPage />,
   },
   {
     path: '',

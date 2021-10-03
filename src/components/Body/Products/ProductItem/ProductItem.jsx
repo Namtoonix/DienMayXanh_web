@@ -1,6 +1,8 @@
 import { onAddToCart } from 'features/Cart/CartSlice';
+import { updatePageInfo } from 'features/PageInfo/PageInfoSlice';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './ProductItem.scss';
 
 ProductItem.propTypes = {
@@ -39,6 +41,11 @@ function ProductItem(props) {
     dispatch(actions);
   };
 
+  const handleGoToPageInfo = (product) => {
+    const actions = updatePageInfo(product);
+    dispatch(actions);
+  };
+
   return (
     <div className="product-item">
       <div className="pic-container">
@@ -71,6 +78,12 @@ function ProductItem(props) {
           className="fa fa-cart-plus buy-btn"
           aria-hidden="true"
         ></button>
+        <Link
+          to={'/product/id/' + product.id}
+          onClick={() => handleGoToPageInfo(product)}
+          className="fa fa-info-circle info-btn"
+          aria-hidden="true"
+        ></Link>
       </div>
     </div>
   );
