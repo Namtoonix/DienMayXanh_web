@@ -1,7 +1,14 @@
 .text-black {
     color: #000;
 }
-
+.nav { 
+    display: none;
+}
+@media (min-width: 1024px) {
+    .nav { 
+        display: block;
+    }
+}
 .nav {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px, rgba(0, 0, 0, 0.22) 0px 8px 8px;
 

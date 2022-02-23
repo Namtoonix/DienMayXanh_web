@@ -1,5 +1,6 @@
 import React from 'react';
 import './FootInfo.scss';
+import logo_facebook from '../../../../assets/images/1200px-Facebook_Logo_(2019).png'
 
 FootInfo.propTypes = {};
 
@@ -51,16 +52,16 @@ function FootInfo(props) {
           <div className="col">
             <img
               alt=""
-              style={{ width: 44 + 'px' }}
-              src="https://w7.pngwing.com/pngs/286/363/png-transparent-computer-icons-social-media-facebook-instagram-social-media-blue-social-media-internet.png"
+              style={{ width: 36 + 'px' }}
+              src={logo_facebook}
             />
             <span>1804.4K Fan</span>
           </div>
           <div className="col">
             <img
               alt=""
-              style={{ width: 24 + 'px' }}
-              src="https://brasol.vn/public/ckeditor/uploads/tin-tuc/1-logo-the-gioi-di-song-dien-may-xanh.jpg"
+              style={{ width: 36 + 'px' }}
+              src={logo_facebook}
             />
             <span>568K Fan</span>
           </div>

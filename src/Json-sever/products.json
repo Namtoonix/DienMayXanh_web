@@ -501,19 +501,7 @@
           "evaluateQuanty": 24,
           "inventory": 20
         },
-        {
-          "id": 37,
-          "image": "https://cdn.tgdd.vn/Products/Images/2162/214631/dalton-ts-15g600x-12-600x600.jpg",
-          "name": "Loa kéo Karaoke Dalton TS-15G600X 600W",
-          "specialFeature": "600W",
-          "online": false,
-          "price": 8890000,
-          "sale": 11,
-          "gift": "Quà 300.000đ",
-          "star": 3,
-          "evaluateQuanty": 37,
-          "inventory": 20
-        },
+        
         {
           "id": 38,
           "image": "https://cdn.tgdd.vn/Products/Images/2162/229096/loa-keo-bluetooth-mozard-l0629k-den-xam-600x600.jpg",

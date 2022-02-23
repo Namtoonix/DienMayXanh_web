@@ -21,7 +21,7 @@ function BodyBottom(props) {
 
   return (
     <div className="row p-3">
-      <div className="col left-item item">
+      <div className="col-xs-12 col-sm-12 col-lg-4 left-item item">
         <div className="title">
           <p>TƯ VẤN CHỌN MUA</p>
           <a href="##">
@@ -36,8 +36,8 @@ function BodyBottom(props) {
           Truyền hình K+ chính thức có mặt tại Thế Giới Di Động và Điện máy XANH, tặng ngay phí lắp đặt 200k.
         </h5>
       </div>
-      <div className="col center-item item">{handleShowNews(news)}</div>
-      <div className="col item right-item">
+      <div className="col-xs-12 col-sm-12 col-lg-4 center-item item">{handleShowNews(news)}</div>
+      <div className="col-xs-12 col-sm-12 col-lg-4 item right-item">
         <div className="title">
           <p>MÓN NGON MỖI NGÀY</p>
           <a href="##">

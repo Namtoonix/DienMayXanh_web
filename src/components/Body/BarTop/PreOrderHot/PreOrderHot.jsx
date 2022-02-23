@@ -5,7 +5,7 @@ PreOrderHot.propTypes = {};
 
 function PreOrderHot(props) {
   return (
-    <div className="col-2 pre-order">
+    <div className="col-2 pre-order col-md-3">
       <div className="image-group">
         <div className="image-item">
           <img alt="" style={{ width: 100 + '%' }} src="https://cdn.tgdd.vn/2021/07/banner/Default-TV-254x254.png" />

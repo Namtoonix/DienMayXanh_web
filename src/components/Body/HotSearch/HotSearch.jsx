@@ -18,10 +18,10 @@ function HotSearch(props) {
     ));
   };
   return (
-    <ul className="hot-search">
+    <div class="d-flex">
       <p>Tìm kiếm nhiều: </p>
-      {handleShowHotKey(hotKey)}
-    </ul>
+      <ul className="hot-search">{handleShowHotKey(hotKey)}</ul>
+    </div>
   );
 }
 

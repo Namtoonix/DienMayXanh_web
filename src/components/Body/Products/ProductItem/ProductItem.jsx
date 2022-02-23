@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { onAddToCart } from '../../../../features/Cart/CartSlice';
 import { updatePageInfo } from '../../../../features/PageInfo/PageInfoSlice';
+import logo_sale from '../../../../assets/images/sale-stamp-1-624x382.png'; 
 import './ProductItem.scss';
 
 ProductItem.propTypes = {
@@ -54,7 +55,7 @@ function ProductItem(props) {
       <div className="product-info">
         <img
           alt=""
-          src="https://www.vhv.rs/dpng/d/12-122177_sale-tag-vector-png-transparent-png.png"
+          src={logo_sale}
           className={'logo-sale ' + (product.sale > 0 ? '' : 'hidden')}
         />
         <p className="product-name">{product.name}</p>

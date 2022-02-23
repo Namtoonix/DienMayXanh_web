@@ -6,12 +6,22 @@ import TopBtn from 'components/Header/TopBtn/TopBtn';
 import { updateProductData } from 'features/Products/ProductSlice';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import HeaderMobile from '../components/Header/HeaderMobile/HeaderMobile';
 
 HeaderContainer.propTypes = {};
 
 function HeaderContainer(props) {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
+  var [widthScreen, setWidthScreen] = useState(window.width)
+
+  function getWindowDimensions() {
+    if (widthScreen > 1024) {
+      return <NavBar products={products} />;
+    } else {
+      return <HeaderMobile products={products} />;
+    }
+  }
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,7 +38,7 @@ function HeaderContainer(props) {
   return (
     <div>
       <SliderHeader />
-      <NavBar products={products} />
+      {getWindowDimensions()}
       <NavSale />
       <TopBtn />
     </div>

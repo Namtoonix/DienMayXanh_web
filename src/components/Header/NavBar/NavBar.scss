@@ -1,6 +1,6 @@
 nav.navHeader {
   background-color: #009ee1;
-  padding: 0px;
+  padding: 0px 12px;
 
   display: flex;
   justify-content: center;
@@ -20,21 +20,20 @@ nav.navHeader {
     display: flex;
     align-items: center;
 
-    
     .nav-link {
       color: #fff !important;
       font-size: 12px;
       padding: 5px 8px;
       margin: auto 4px;
-      
+
       position: relative;
-      
+
       &.cursor-none:hover {
         cursor: not-allowed !important;
       }
       &:hover {
-          color: #fff200 !important;
-          cursor: pointer;
+        color: #fff200 !important;
+        cursor: pointer;
       }
     }
     .color-gold {
@@ -47,10 +46,10 @@ nav.navHeader {
       border: 1px solid #fff;
       padding: 8px;
 
-      &:hover{
+      &:hover {
         opacity: 0.8;
         color: #fff !important;
-        background-color: rgba($color: #fff, $alpha: 0.5)
+        background-color: rgba($color: #fff, $alpha: 0.5);
       }
     }
     .dot-gold {
@@ -83,5 +82,24 @@ nav.navHeader {
       }
       animation: borderDot 1s infinite;
     }
+  }
+}
+@media (max-width: 1024px) {
+  .navbar-center {
+    justify-content: space-between !important;
+    width: 100%;
+  }
+  .navbar-toggler {
+    order: -1;
+  }
+  .navbar-nav {
+    margin-right: 0px !important;
+  }
+  .pre-order,
+  #carouselExampleIndicators {
+    margin: 0px;
+  }
+  nav.navHeader .nav-item .cart-btn {
+    margin-right: 0 !important;
   }
 }
