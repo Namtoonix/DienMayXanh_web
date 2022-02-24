@@ -4,10 +4,15 @@ import './TopBtn.scss';
 TopBtn.propTypes = {};
 
 function TopBtn(props) {
+  const onClickBackTop = () => {
+    window.scrollTo(0, 0)
+    return false;
+  };
   return (
-    <a href="#carouselExampleControls" className="top-btn">
-      <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </a>
+    <div onClick={onClickBackTop} class="back-top">
+      <button className="hidden-phone">
+      </button>
+    </div>
   );
 }
 

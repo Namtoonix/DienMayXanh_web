@@ -13,7 +13,7 @@ HeaderContainer.propTypes = {};
 function HeaderContainer(props) {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  var [widthScreen, setWidthScreen] = useState(window.width)
+  var [widthScreen, setWidthScreen] = useState(window.innerWidth)
 
   function getWindowDimensions() {
     if (widthScreen > 1024) {
@@ -38,7 +38,7 @@ function HeaderContainer(props) {
   return (
     <div>
       <SliderHeader />
-      {getWindowDimensions()}
+      {getWindowDimensions(widthScreen)}
       <NavSale />
       <TopBtn />
     </div>

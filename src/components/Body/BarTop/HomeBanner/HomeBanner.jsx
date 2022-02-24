@@ -41,7 +41,7 @@ function HomeBanner(props) {
     );
   };
   return (
-    <div id="carouselExampleIndicators" className="slider carousel slide col-7 col-md-9" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" className="slider carousel slide col-md-6 col-sm-9" data-bs-ride="carousel">
       {showCarouselIndicator(slideList)}
       {showCarouselInner(slideList)}
       <button

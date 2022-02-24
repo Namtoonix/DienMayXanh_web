@@ -18,7 +18,7 @@ function NavLeft(props) {
     ));
   };
   return (
-    <table className="col-2 text-start nav-list ps-4 pe-4">
+    <table className="col-md-3 text-start nav-list ps-4 pe-4">
       <tbody>
         {typeProduct.map((listType, index) => (
           <tr key={index} className="tr-item">
